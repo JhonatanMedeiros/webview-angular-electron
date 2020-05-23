@@ -1,27 +1,77 @@
-# WebviewAngularElectron
+# WebView Angular Electron
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
+## 🖥 Introduction
 
-## Development server
+WebView Angular Electron with Angular 9 and Electron 8 (Typescript + SASS + Hot Reload) for Desktop applications.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Currently, runs with:
 
-## Code scaffolding
+Angular v9.1.4
+Electron v8.2.5
+Electron Builder v22.6.0
+With this sample, you can :
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run your app in a local development environment with Electron & Hot reload
+Run your app in a production environment
+Package your app into an executable file for Linux, Windows & Mac
+/!\ Hot reload only pertains to the renderer process. The main electron process is not able to be hot reloaded, only restarted.
 
-## Build
+/!\ Angular 9.x CLI needs Node 10.13 or later to works correctly.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+> The project use boilerplate from https://github.com/maximegris/angular-electron/
 
-## Running unit tests
+## ⌨️ Development
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Clone Code
 
-## Running end-to-end tests
+```bash
+git clone git@github.com:JhonatanMedeiros/webview-angular-electron.git
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+### Install Dependencies
 
-## Further help
+```bash
+npm install
+```
+> If you like [Yarn](https://yarnpkg.com/), you can also use `yarn` to install dependencies.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+### Development
+
+```bash
+npm run start
+```
+> After run the command, the application open in new window.
+
+```bash
+npm run run ng:serve:web
+```
+> Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+
+### Build Release
+
+|Command|Description|
+|--|--|
+|`npm run build`| Build the app. |
+|`npm run build:prod`| Build the app with Angular aot. |
+|`npm run electron:local`| Builds your application and start electron
+|`npm run electron:linux`| Builds your application and creates an app consumable on linux system |
+|`npm run electron:windows`| On a Windows OS, builds your application and creates an app consumable in windows 32/64 bit systems |
+|`npm run electron:mac`|  On a MAC OS, builds your application and generates a `.app` file of your application that can be run on Mac |
+
+After building, the application will be found in the `dist` directory.
+
+## 🛠 Technology Stack
+
+- [Angular 9x](https://angular.io/)
+- [Electron](https://www.electronjs.org/)
+- [Electron Builder](https://github.com/electron-userland/electron-builder)
+
+
+# 🤝 Contribute [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com)
+
+If you are interested in participating in joint development, PR and Forks are welcome!
+
+## 📜 License
+
+[MIT](https://github.com/JhonatanMedeiros/webview-angular-electron/blob/master/LICENSE) Copyright (c) 2020 - Jhonatan Hardt de Medeiros
