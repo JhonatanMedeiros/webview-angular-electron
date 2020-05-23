@@ -1,3 +1,9 @@
+[![Angular Logo](https://www.vectorlogo.zone/logos/angular/angular-icon.svg)](https://angular.io/) [![Electron Logo](https://www.vectorlogo.zone/logos/electronjs/electronjs-icon.svg)](https://electronjs.org/)
+
+![Maintained][maintained-badge]
+[![Make a pull request][prs-badge]][prs]
+[![License](http://img.shields.io/badge/Licence-MIT-brightgreen.svg)](LICENSE.md)
+
 # WebView Angular Electron
 
 ## 🖥 Introduction
@@ -68,10 +74,17 @@ After building, the application will be found in the `dist` directory.
 - [Electron Builder](https://github.com/electron-userland/electron-builder)
 
 
-# 🤝 Contribute [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com)
+# 🤝 Contribute
 
 If you are interested in participating in joint development, PR and Forks are welcome!
 
 ## 📜 License
 
 [MIT](https://github.com/JhonatanMedeiros/webview-angular-electron/blob/master/LICENSE) Copyright (c) 2020 - Jhonatan Hardt de Medeiros
+
+
+[license-badge]: https://img.shields.io/badge/license-Apache2-blue.svg?style=style=flat-square
+[license]: https://github.com/maximegris/angular-electron/blob/master/LICENSE.md
+[prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat
+[prs]: http://makeapullrequest.com
+[maintained-badge]: https://img.shields.io/badge/maintained-yes-brightgreen
