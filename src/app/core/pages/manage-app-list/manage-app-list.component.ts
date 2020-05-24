@@ -1,5 +1,5 @@
 // Angular Imports
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 
 // External Libs
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
@@ -22,7 +22,8 @@ import { ManageAppService } from '@app/core/services';
 @Component({
   selector: 'webae-manage-app-list',
   templateUrl: './manage-app-list.component.html',
-  styleUrls: ['./manage-app-list.component.scss']
+  styleUrls: ['./manage-app-list.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ManageAppListComponent implements OnInit, OnDestroy {
 
@@ -68,6 +69,9 @@ export class ManageAppListComponent implements OnInit, OnDestroy {
       ]
     },
   ];
+
+  // Pagination
+  currentPage = 1;
 
   // Modal Ref
   bsModalRef: BsModalRef;

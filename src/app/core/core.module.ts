@@ -1,7 +1,7 @@
 // Angular Imports
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Modules Imports
 import { CoreRoutingModule } from './core-routing.module';
@@ -16,6 +16,7 @@ import { ModalFormAppComponent } from './components';
 
 // Services Imports
 import { ManageAppService } from '@core/services';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 @NgModule({
   declarations: [
@@ -26,8 +27,10 @@ import { ManageAppService } from '@core/services';
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    FormsModule,
     CoreRoutingModule,
-    DataTableModule
+    DataTableModule,
+    PaginationModule,
   ],
   providers: [ManageAppService]
 })
