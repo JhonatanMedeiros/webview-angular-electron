@@ -1,85 +1,91 @@
-import { app, BrowserWindow, screen as electronScreen } from 'electron';
-import * as path from 'path';
-import * as url from 'url';
+import { app, ipcMain } from 'electron';
+import { MainWindow } from './main-process/main-window/main-window';
+import { MainMenu } from './main-process/menus/main-menu';
+import { ManageAppStore } from './main-process/store/manage-app-store';
 
-let win: BrowserWindow = null;
-const args = process.argv.slice(1);
-const serve = args.some(val => val === '--serve');
+let mainWindow: MainWindow;
+let store: ManageAppStore;
 
-function createWindow(): BrowserWindow {
+if (process.mas) {
+  app.setName('WEB View Angular Electron');
+}
 
-  const size = electronScreen.getPrimaryDisplay().workAreaSize;
+function initialize() {
 
-  // Create the browser window.
-  win = new BrowserWindow({
-    x: 0,
-    y: 0,
-    width: size.width,
-    height: size.height,
-    webPreferences: {
-      nodeIntegration: true,
-      allowRunningInsecureContent: serve,
-    },
-  });
+  initializeStore();
+  makeSingleInstance();
 
-  if (serve) {
+  try {
 
-    require('devtron').install();
-    win.webContents.openDevTools();
+    app.allowRendererProcessReuse = true;
 
-    require('electron-reload')(__dirname, {
-      electron: require(`${__dirname}/node_modules/electron`)
+    // This method will be called when Electron has finished
+    // initialization and is ready to create browser windows.
+    // Some APIs can only be used after this event occurs.
+    // Added 400 ms to fix the black background issue while using transparent window.
+    // More details at https://github.com/electron/electron/issues/15947
+    app.on('ready', () => setTimeout(() => {
+      mainWindow = new MainWindow();
+      const mainMenu = new MainMenu(mainWindow);
+    }, 400));
+
+    // Quit when all windows are closed.
+    app.on('window-all-closed', () => {
+      // On OS X it is common for applications and their menu bar
+      // to stay active until the user quits explicitly with Cmd + Q
+      if (process.platform !== 'darwin') {
+        app.quit();
+      }
     });
-    win.loadURL('http://localhost:4200');
 
-  } else {
-    win.loadURL(url.format({
-      pathname: path.join(__dirname, 'dist/webview-angular-electron/index.html'),
-      protocol: 'file:',
-      slashes: true
-    }));
+    app.on('activate', () => {
+      // On OS X it's common to re-create a window in the app when the
+      // dock icon is clicked and there are no other windows open.
+      if (!mainWindow || !mainWindow.browserWindow) {
+        mainWindow.createWindow();
+      }
+    });
+
+    ipcMain.handle('url-channel', async (event, data: any) => {
+      console.log(data);
+      const { url: browserUrl } = data;
+      await mainWindow.browserWindow.loadURL(browserUrl);
+      return { ok: true, browserUrl, win: mainWindow.browserWindow };
+    });
+
+  } catch (e) {
+    // Catch Error
+    console.error(e);
+    throw e;
+  }
+}
+
+// Make this app a single instance app.
+//
+// The main window will be restored and focused instead of a second window
+// opened when a person attempts to launch a second instance.
+//
+// Returns true if the current version of the app should quit instead of
+// launching.
+function makeSingleInstance() {
+  if (process.mas) {
+    return;
   }
 
-  // Emitted when the window is closed.
-  win.on('closed', () => {
-    // Dereference the window object, usually you would store window
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
-    win = null;
-  });
+  app.requestSingleInstanceLock();
 
-  return win;
-}
-
-try {
-
-  app.allowRendererProcessReuse = true;
-
-  // This method will be called when Electron has finished
-  // initialization and is ready to create browser windows.
-  // Some APIs can only be used after this event occurs.
-  // Added 400 ms to fix the black background issue while using transparent window.
-  // More details at https://github.com/electron/electron/issues/15947
-  app.on('ready', () => setTimeout(createWindow, 400));
-
-  // Quit when all windows are closed.
-  app.on('window-all-closed', () => {
-    // On OS X it is common for applications and their menu bar
-    // to stay active until the user quits explicitly with Cmd + Q
-    if (process.platform !== 'darwin') {
-      app.quit();
+  app.on('second-instance', () => {
+    if (mainWindow.browserWindow) {
+      if (mainWindow.browserWindow.isMinimized()) {
+        mainWindow.browserWindow.restore();
+      }
+      mainWindow.browserWindow.focus();
     }
   });
-
-  app.on('activate', () => {
-    // On OS X it's common to re-create a window in the app when the
-    // dock icon is clicked and there are no other windows open.
-    if (win === null) {
-      createWindow();
-    }
-  });
-
-} catch (e) {
-  // Catch Error
-  // throw e;
 }
+
+function initializeStore() {
+  store = new ManageAppStore();
+}
+
+initialize();

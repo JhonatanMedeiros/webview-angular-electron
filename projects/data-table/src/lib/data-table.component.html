@@ -1,0 +1,90 @@
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <ng-container *ngFor="let column of columns">
+          <ng-container [ngSwitch]="column.type">
+
+            <ng-container *ngSwitchCase="columnType.text">
+              <ng-container *ngTemplateOutlet="columnHeaderText; context: {$implicit: column}"></ng-container>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="columnType.checkbox">
+              <th>
+                <span class="custom-checkbox">
+            <input type="checkbox" id="selectAll">
+            <label for="selectAll"></label>
+        </span>
+              </th>
+            </ng-container>
+
+            <ng-container *ngSwitchDefault>
+              <ng-container *ngTemplateOutlet="columnHeaderText; context: {$implicit: column}"></ng-container>
+            </ng-container>
+
+          </ng-container>
+        </ng-container>
+      </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let item of data; let i = index">
+
+      <ng-container *ngFor="let column of columns">
+        <ng-container [ngSwitch]="column.type">
+
+          <ng-container *ngSwitchCase="columnType.text">
+            <ng-container *ngTemplateOutlet="columnDataText; context: {$implicit: item, column: column}"></ng-container>
+          </ng-container>
+
+          <ng-container *ngSwitchCase="columnType.checkbox">
+            <td>
+      <span class="custom-checkbox">
+        <input type="checkbox">
+        <label></label>
+      </span>
+            </td>
+          </ng-container>
+
+          <ng-container *ngSwitchCase="columnType.actions">
+            <td>
+              <div class="d-flex">
+                <ng-container *ngFor="let action of column.actions">
+                  <ng-container *ngTemplateOutlet="columnAction; context: {$implicit: item, action: action}"></ng-container>
+                </ng-container>
+              </div>
+            </td>
+          </ng-container>
+
+          <ng-container *ngSwitchDefault>
+            <ng-container *ngTemplateOutlet="columnDataText; context: {$implicit: item, column: column}"></ng-container>
+          </ng-container>
+
+        </ng-container>
+      </ng-container>
+
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #columnHeaderText let-item>
+  <th>{{item.label}}</th>
+</ng-template>
+
+<ng-template #columnDataText let-item let-column="column">
+  <td>{{ itemValue(item, column) || '-'}}</td>
+</ng-template>
+
+<ng-template #columnAction let-item let-action="action">
+
+  <a
+    class="btn btn-link d-flex align-items-center"
+    [tooltip]="action?.label"
+    [class.disabled]="action.disabled"
+    (click)="actionClick($event, item, action)"
+  >
+    <i *ngIf="action?.icon" [ngClass]="action?.icon"></i></a
+  >
+
+</ng-template>

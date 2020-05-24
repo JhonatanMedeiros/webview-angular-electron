@@ -1,0 +1,104 @@
+.table-wrapper {
+  background: #fff;
+  padding: 20px 25px;
+  margin: 30px 0;
+  border-radius: 3px;
+  box-shadow: 0 1px 1px rgba(0,0,0,.05);
+
+  .table-title {
+    background: #435d7d;
+    color: #fff;
+    padding: 16px 30px;
+    margin: -20px -25px 10px;
+    border-radius: 3px 3px 0 0;
+
+    h2 {
+      margin: 5px 0 0;
+      font-size: 24px;
+    }
+
+    .btn-group {
+      float: right;
+    }
+
+    .btn {
+      color: #fff;
+      float: right;
+      font-size: 13px;
+      border: none;
+      min-width: 50px;
+      border-radius: 2px;
+      outline: none !important;
+      margin-left: 10px;
+
+      i {
+        float: left;
+        font-size: 21px;
+        margin-right: 5px;
+      }
+
+      span {
+        float: left;
+        margin-top: 2px;
+      }
+    }
+  }
+}
+
+.pagination {
+  float: right;
+  margin: 0 0 5px;
+
+  li a {
+    border: none;
+    font-size: 13px;
+    min-width: 30px;
+    min-height: 30px;
+    color: #999;
+    margin: 0 2px;
+    line-height: 30px;
+    border-radius: 2px !important;
+    text-align: center;
+    padding: 0 6px;
+  }
+
+  li.active>a,
+  li.active>a:focus,
+  li.active>a:hover,
+  li.active > span,
+  li.active>span:focus,
+  li.active>span:hover{
+    z-index: 3;
+    color: #fff;
+    cursor: default;
+    background-color: #337ab7;
+    border-color: #337ab7;
+  }
+
+  li a:hover {
+    color: #666;
+  }
+
+  li.active a, .pagination li.active a.page-link {
+    background: #03A9F4;
+  }
+
+  li.active a:hover {
+    background: #0397d6;
+  }
+
+  li.disabled i {
+    color: #ccc;
+  }
+
+  li i {
+    font-size: 16px;
+    padding-top: 6px
+  }
+}
+
+.hint-text {
+  float: left;
+  margin-top: 10px;
+  font-size: 13px;
+}

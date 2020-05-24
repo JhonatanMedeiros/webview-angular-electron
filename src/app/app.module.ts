@@ -1,18 +1,25 @@
-import { BrowserModule } from '@angular/platform-browser';
+// Angular Imports
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+// External Libs
+import { ModalModule } from 'ngx-bootstrap/modal';
+
+// Modules Imports
 import { AppRoutingModule } from './app-routing.module';
+
+// Components Imports
 import { AppComponent } from './app.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    ModalModule.forRoot()
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
