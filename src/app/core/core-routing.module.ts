@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 // Components Imports
 import { CoreComponent } from './core.component';
-import { UrlListComponent } from './pages/url-list/url-list.component';
+import { ManageAppListComponent } from '@app/core/pages';
 
 const routes: Routes = [
   {
@@ -14,7 +14,7 @@ const routes: Routes = [
       { path: '', pathMatch: 'full', redirectTo: 'list' },
       {
         path: 'list',
-        component: UrlListComponent
+        component: ManageAppListComponent
       },
       { path: '**', redirectTo: 'list' },
     ]

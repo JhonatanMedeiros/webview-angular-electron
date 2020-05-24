@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+// External Libs
+import { ModalModule } from 'ngx-bootstrap/modal';
+
 // Modules Imports
 import { AppRoutingModule } from './app-routing.module';
 
@@ -14,7 +17,8 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ModalModule.forRoot()
   ],
   bootstrap: [AppComponent]
 })
