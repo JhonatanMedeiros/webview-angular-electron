@@ -24,6 +24,7 @@ export class MainWindow {
       width: size.width,
       height: size.height,
       title: app.getName(),
+      alwaysOnTop: false,
       webPreferences: {
         nodeIntegration: true,
         allowRunningInsecureContent: this.serve,
@@ -45,6 +46,10 @@ export class MainWindow {
 
   returnToHome(): void {
     this.initURL();
+  }
+
+  setAlwaysOnTop(flag: boolean): void {
+    this.browserWindow.setAlwaysOnTop(flag);
   }
 
   private initURL(): void {

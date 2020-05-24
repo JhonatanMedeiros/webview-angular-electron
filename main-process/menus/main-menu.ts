@@ -8,15 +8,29 @@ export class MainMenu {
 
   menus: any[] = [
     {
-      label: 'APP',
+      label: 'App',
       submenu: [
         {
           label: 'Go to Home',
           click: () => {
             this.mainWindow.returnToHome();
           }
-        }
-      ]
+        },
+        {
+          type: 'separator'
+        },
+        {
+          label: 'Settings...',
+        },
+        {
+          type: 'separator'
+        },
+        {
+          label: 'Exit',
+          accelerator: 'CmdOrCtrl+W',
+          role: 'close'
+        },
+      ],
     },
     {
       label: 'View',
@@ -67,6 +81,15 @@ export class MainMenu {
             if (focusedWindow) {
               focusedWindow.toggleDevTools();
             }
+          }
+        },
+        {
+          label: 'Always On Top',
+          type: 'checkbox',
+          checked: false,
+          accelerator: 'CmdOrCtrl+Shift+O',
+          click: (e) => {
+            this.mainWindow.setAlwaysOnTop(e.checked);
           }
         }
       ]
