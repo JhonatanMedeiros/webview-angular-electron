@@ -6,11 +6,9 @@ import { ManageAppStore } from './main-process/store/manage-app-store';
 let mainWindow: MainWindow;
 let store: ManageAppStore;
 
-if (process.mas) {
-  app.setName('WEB View Angular Electron');
-}
-
 function initialize() {
+
+  app.setName('WEB View Angular Electron');
 
   initializeStore();
   makeSingleInstance();

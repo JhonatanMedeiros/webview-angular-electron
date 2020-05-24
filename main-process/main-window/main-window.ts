@@ -31,6 +31,11 @@ export class MainWindow {
       },
     });
 
+    if (process.platform === 'linux') {
+      const icon = path.join(__dirname, '../../src/assets/electron-logo.png');
+      this.browserWindow.setIcon(icon);
+    }
+
     this.initURL();
 
     // Emitted when the window is closed.
