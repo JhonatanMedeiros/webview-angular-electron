@@ -1,6 +1,12 @@
 {
   "name": "webview-angular-electron",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Manage multiples WebView with Angular e Electron",
+  "author": {
+    "email": "jhonatan.medeiros02@gmail.com",
+    "name": "Jhonatan Hardt de Medeiros",
+    "url": "https://jhonatanmedeiros.com"
+  },
   "scripts": {
     "postinstall": "electron-builder install-app-deps",
     "ng": "ng",
@@ -16,6 +22,8 @@
     "electron:linux": "npm run build:prod && electron-builder build --linux",
     "electron:windows": "npm run build:prod && electron-builder build --windows",
     "electron:mac": "npm run build:prod && electron-builder build --mac",
+    "release": "node scripts/release.js",
+    "release:changelog": "standard-changelog",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -57,6 +65,7 @@
     "electron-builder": "^22.6.1",
     "electron-reload": "^1.5.0",
     "husky": "^4.2.5",
+    "inquirer": "^7.1.0",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.4.1",
@@ -64,9 +73,12 @@
     "karma-coverage-istanbul-reporter": "~2.1.0",
     "karma-jasmine": "~3.0.1",
     "karma-jasmine-html-reporter": "^1.4.2",
+    "minimist": "^1.2.5",
     "ng-packagr": "^9.0.0",
     "npm-run-all": "^4.1.5",
     "protractor": "~5.4.3",
+    "semver": "^7.3.2",
+    "standard-changelog": "^2.0.24",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~3.8.3",
@@ -75,6 +87,37 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS && npm run lint"
+    }
+  },
+  "build": {
+    "appId": "com.jhonatanmedeiros.webview-angular-electron",
+    "productName": "Webview Angular Electron",
+    "linux": {
+      "category": "Development",
+      "packageCategory": "Development",
+      "target": [
+        {
+          "target": "deb",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "snap",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "desktop": {
+        "Encoding": "UTF-8"
+      }
     }
   }
 }
