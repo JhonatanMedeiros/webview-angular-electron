@@ -11,11 +11,11 @@ import { DataTableModule } from '@projects/data-table';
 
 // Components Imports
 import { CoreComponent } from './core.component';
-import { ManageAppListComponent } from '@app/core/pages';
+import { ManageAppListComponent } from '@core/pages';
 import { ModalFormAppComponent } from './components';
 
 // Services Imports
-import { ManageAppService } from '@app/core/services';
+import { ManageAppService } from '@core/services';
 
 @NgModule({
   declarations: [

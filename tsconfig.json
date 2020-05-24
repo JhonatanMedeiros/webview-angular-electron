@@ -18,7 +18,9 @@
     "paths": {
       "@projects/*": ["./projects/*"],
       "@data-table/*": ["./projects/data-table/*"],
-      "@app/*": ["./src/app/*"]
+      "@app/*": ["./src/app/*"],
+      "@services/*": ["./src/app/services/*"],
+      "@core/*": ["./src/app/core/*"]
     }
   },
   "angularCompilerOptions": {

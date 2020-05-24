@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 // Components Imports
 import { CoreComponent } from './core.component';
-import { ManageAppListComponent } from '@app/core/pages';
+import { ManageAppListComponent } from '@core/pages';
 
 const routes: Routes = [
   {

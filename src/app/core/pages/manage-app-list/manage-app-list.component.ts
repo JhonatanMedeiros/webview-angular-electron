@@ -96,10 +96,9 @@ export class ManageAppListComponent implements OnInit, OnDestroy {
   }
 
   private openUrl(url: string): void {
-    this.electronService.ipcRenderer.invoke('url-channel', { url })
-      .then((result) => {
-        console.log(result);
-      });
+    this.manageAppService.openManageAPP(url)
+      .pipe(takeUntil(this.ngUnSubscribe))
+      .subscribe();
   }
 
   private openModal(item?: IManageApp): void {
