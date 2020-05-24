@@ -40,6 +40,8 @@
     "@angular/cli": "~9.1.1",
     "@angular/compiler-cli": "~9.1.1",
     "@angular/language-service": "~9.1.1",
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-angular": "^8.3.4",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
@@ -48,6 +50,7 @@
     "electron": "^9.0.0",
     "electron-builder": "^22.6.1",
     "electron-reload": "^1.5.0",
+    "husky": "^4.2.5",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.4.1",
@@ -61,5 +64,10 @@
     "tslint": "~6.1.0",
     "typescript": "~3.8.3",
     "wait-on": "^5.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS && npm run lint"
+    }
   }
 }
