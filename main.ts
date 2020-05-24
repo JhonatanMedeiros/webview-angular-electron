@@ -1,8 +1,10 @@
 import { app, ipcMain } from 'electron';
 import { MainWindow } from './main-process/main-window/main-window';
 import { MainMenu } from './main-process/menus/main-menu';
+import { ManageAppStore } from './main-process/store/manage-app-store';
 
 let mainWindow: MainWindow;
+let store: ManageAppStore;
 
 if (process.mas) {
   app.setName('WEB View Angular Electron');
@@ -10,6 +12,7 @@ if (process.mas) {
 
 function initialize() {
 
+  initializeStore();
   makeSingleInstance();
 
   try {
@@ -79,6 +82,10 @@ function makeSingleInstance() {
       mainWindow.browserWindow.focus();
     }
   });
+}
+
+function initializeStore() {
+  store = new ManageAppStore();
 }
 
 initialize();

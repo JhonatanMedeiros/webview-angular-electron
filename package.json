@@ -33,9 +33,11 @@
     "@angular/router": "~9.1.1",
     "@fortawesome/fontawesome-free": "^5.13.0",
     "bootstrap": "^4.5.0",
+    "electron-store": "^5.1.1",
     "ngx-bootstrap": "^5.6.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
+    "uuid": "^8.1.0",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {

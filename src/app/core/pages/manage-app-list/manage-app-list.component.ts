@@ -52,6 +52,7 @@ export class ManageAppListComponent implements OnInit, OnDestroy {
           command: (e) => {
             e.originalEvent.preventDefault();
             e.originalEvent.stopPropagation();
+            this.deleteManageApp(e.item);
           }
         },
         {
@@ -107,8 +108,8 @@ export class ManageAppListComponent implements OnInit, OnDestroy {
 
     (this.bsModalRef.content as ModalFormAppComponent).submitData
       .pipe(takeUntil(this.ngUnSubscribe))
-      .subscribe((data: IManageApp) => {
-        console.log(data);
+      .subscribe(() => {
+        this.getManageAPPList();
       });
   }
 
@@ -117,7 +118,18 @@ export class ManageAppListComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.ngUnSubscribe))
       .subscribe(res => {
         this.data = [...res];
+        console.log(this.data);
       });
+  }
+
+  private deleteManageApp(item: IManageApp): void {
+    if (window.confirm(`Delete "${item.name}" ?`)) {
+      this.manageAppService.delete(item.id)
+        .pipe(takeUntil(this.ngUnSubscribe))
+        .subscribe(() => {
+          this.getManageAPPList();
+        });
+    }
   }
 
 

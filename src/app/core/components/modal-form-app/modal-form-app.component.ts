@@ -38,6 +38,7 @@ export class ModalFormAppComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
+    console.log(this.data);
     this.dataForm.patchValue({...this.data});
   }
 
@@ -68,7 +69,9 @@ export class ModalFormAppComponent implements OnInit, OnDestroy {
     this.manageAppService.create(manageApp)
       .pipe(takeUntil(this.ngUnSubscribe))
       .subscribe(res => {
-        console.log(res);
+        console.log('[createManageApp - res]', res);
+        this.bsModalRef.hide();
+        this.submitData.emit(res);
       });
   }
 
@@ -76,7 +79,9 @@ export class ModalFormAppComponent implements OnInit, OnDestroy {
     this.manageAppService.update(manageApp)
       .pipe(takeUntil(this.ngUnSubscribe))
       .subscribe(res => {
-        console.log(res);
+        console.log('[updateManageApp - res]', res);
+        this.bsModalRef.hide();
+        this.submitData.emit(res);
       });
   }
 
