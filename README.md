@@ -76,11 +76,12 @@ After building, the application will be found in the `dist` directory.
 
 # 🤝 Contribute
 
-If you are interested in participating in joint development, PR and Forks are welcome!
+If you are interested in participating joint development, PR and Forks are welcome!
+Read up on our guidelines for [contributing][contributing].
 
 ## 📜 License
 
-[MIT](https://github.com/JhonatanMedeiros/webview-angular-electron/blob/master/LICENSE) Copyright (c) 2020 - Jhonatan Hardt de Medeiros
+[MIT][license] Copyright (c) 2020 - Jhonatan Hardt de Medeiros
 
 
 [license-badge]: https://img.shields.io/badge/license-Apache2-blue.svg?style=style=flat-square
@@ -88,3 +89,5 @@ If you are interested in participating in joint development, PR and Forks are we
 [prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat
 [prs]: http://makeapullrequest.com
 [maintained-badge]: https://img.shields.io/badge/maintained-yes-brightgreen
+[license]: https://github.com/JhonatanMedeiros/webview-angular-electron/blob/master/LICENSE
+[contributing]: https://github.com/JhonatanMedeiros/webview-angular-electron/blob/master/CONTRIBUTING.md
