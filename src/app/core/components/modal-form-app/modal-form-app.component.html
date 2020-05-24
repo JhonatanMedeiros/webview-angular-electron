@@ -15,7 +15,15 @@
         formControlName="name"
         id="input-name"
         required
+        [class.is-valid]="inputName.valid && (inputName.dirty || inputName.touched)"
+        [class.is-invalid]="inputName.invalid && (inputName.dirty || inputName.touched)"
       >
+      <div class="valid-feedback" *ngIf="inputName.valid && (inputName.dirty || inputName.touched)">
+        Looks good!
+      </div>
+      <div class="invalid-feedback" *ngIf="inputName.invalid && (inputName.dirty || inputName.touched)">
+        Name is required
+      </div>
     </div>
     <div class="form-group">
       <label for="input-url">URL</label>
@@ -26,7 +34,15 @@
         formControlName="url"
         id="input-url"
         required
+        [class.is-valid]="inputUrl.valid && (inputUrl.dirty || inputUrl.touched)"
+        [class.is-invalid]="inputUrl.invalid && (inputUrl.dirty || inputUrl.touched)"
       >
+      <div class="valid-feedback" *ngIf="inputUrl.valid && (inputUrl.dirty || inputUrl.touched)">
+        Looks good!
+      </div>
+      <div class="invalid-feedback" *ngIf="inputUrl.invalid && (inputUrl.dirty || inputUrl.touched)">
+        URL is required
+      </div>
     </div>
   </form>
 </div>

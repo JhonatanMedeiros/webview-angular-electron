@@ -30,6 +30,9 @@ export class ModalFormAppComponent implements OnInit, OnDestroy {
     url: new FormControl('', [Validators.required]),
   });
 
+  get inputName() { return this.dataForm.get('name'); }
+  get inputUrl() { return this.dataForm.get('url'); }
+
   private ngUnSubscribe: Subject<Subscription> = new Subject<Subscription>();
 
   constructor(
