@@ -1,6 +1,12 @@
 {
   "name": "webview-angular-electron",
   "version": "0.0.0",
+  "description": "Manage multiples WebView with Angular e Electron",
+  "author": {
+    "email": "jhonatan.medeiros02@gmail.com",
+    "name": "Jhonatan Hardt de Medeiros",
+    "url": "https://jhonatanmedeiros.com"
+  },
   "scripts": {
     "postinstall": "electron-builder install-app-deps",
     "ng": "ng",
@@ -75,6 +81,31 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS && npm run lint"
+    }
+  },
+  "build": {
+    "appId": "com.jhonatanmedeiros.webview-angular-electron",
+    "productName": "Webview Angular Electron",
+    "linux": {
+      "category": "Development",
+      "packageCategory": "Development",
+      "target": [
+        {
+          "target": "deb",
+          "arch": [  "x64"]
+        },
+        {
+          "target": "snap",
+          "arch": [  "x64"]
+        },
+        {
+          "target": "AppImage",
+          "arch": [  "x64"]
+        }
+      ],
+      "desktop": {
+        "Encoding": "UTF-8"
+      }
     }
   }
 }

@@ -70,7 +70,7 @@ export class MainWindow {
 
     } else {
       this.browserWindow.loadURL(url.format({
-        pathname: path.join(__dirname, 'dist/webview-angular-electron/index.html'),
+        pathname: path.join(__dirname, '/../../dist/webview-angular-electron/index.html'),
         protocol: 'file:',
         slashes: true
       }));
