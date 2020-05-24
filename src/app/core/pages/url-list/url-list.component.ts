@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 
 // Lib Data Table Imports
 import { EColumnType, IColumn } from '@projects/data-table';
+import { ElectronService } from '@app/services';
 
 @Component({
   selector: 'webae-url-list',
@@ -16,7 +17,7 @@ export class UrlListComponent implements OnInit {
     { name: 'Local Host 2', url: 'localhost:5555' },
     { name: 'Local Host 3', url: 'localhost:5555' },
     { name: 'Local Host 4', url: 'localhost:5555' },
-    { name: 'Local Host 5', url: 'localhost:5555' },
+    { name: 'Local Host 5', url: 'http://google.com' },
   ];
   dataColumns: IColumn[] = [
     { type: EColumnType.checkbox },
@@ -48,15 +49,23 @@ export class UrlListComponent implements OnInit {
           command: (e) => {
             e.originalEvent.preventDefault();
             e.originalEvent.stopPropagation();
+            console.log(e);
+            this.openUrl(e.item.url);
           }
         },
       ]
     },
   ];
 
-  constructor() { }
+  constructor(private electronService: ElectronService) { }
 
   ngOnInit(): void {
+  }
+
+  private openUrl(url: string): void {
+    this.electronService.ipcRenderer.invoke('url-channel', { url }).then((result) => {
+      console.log(result);
+    });
   }
 
 }
