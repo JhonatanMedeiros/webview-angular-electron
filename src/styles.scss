@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
+@import url("https://fonts.googleapis.com/css?family=Roboto|Varela+Round");
+
+body {
+  color: #566787;
+  background: #f5f5f5;
+  font-family: 'Varela Round', sans-serif;
+  font-size: 13px;
+}
