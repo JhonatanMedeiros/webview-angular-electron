@@ -10,17 +10,18 @@
   "scripts": {
     "postinstall": "electron-builder install-app-deps",
     "ng": "ng",
-    "start": "npm-run-all -p electron:serve ng:serve",
+    "start": "npm-run-all -p electron:serve ng:serve --",
     "build": "npm run electron:serve-tsc && ng build --base-href ./",
     "build:dev": "npm run build --",
     "build:prod": "npm run build -- --prod",
-    "ng:serve": "ng serve",
-    "ng:serve:web": "npm run ng:serve",
+    "ng:serve": "ng serve -- --port=4200",
+    "ng:serve:web": "npm run ng:serve --",
     "electron:serve-tsc": "tsc -p tsconfig-serve.json",
     "electron:serve": "wait-on http-get://localhost:4200/ && npm run electron:serve-tsc && electron . --serve",
     "electron:local": "npm run build:prod && electron .",
+    "package": "npm run build:prod && electron-builder build --publish never",
     "electron:linux": "npm run build:prod && electron-builder build --linux",
-    "electron:windows": "npm run build:prod && electron-builder build --windows",
+    "electron:windows": "npm run build:prod && electron-builder build --win --x64",
     "electron:mac": "npm run build:prod && electron-builder build --mac",
     "release": "node scripts/release.js",
     "release:changelog": "standard-changelog",
@@ -92,32 +93,41 @@
   "build": {
     "appId": "com.jhonatanmedeiros.webview-angular-electron",
     "productName": "Webview Angular Electron",
+    "copyright": "Copyright © 2020 ${author}",
+    "dmg": {
+      "contents": [
+        {
+          "x": 130,
+          "y": 220
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "msi"
+      ]
+    },
     "linux": {
       "category": "Development",
       "packageCategory": "Development",
       "target": [
-        {
-          "target": "deb",
-          "arch": [
-            "x64"
-          ]
-        },
-        {
-          "target": "snap",
-          "arch": [
-            "x64"
-          ]
-        },
-        {
-          "target": "AppImage",
-          "arch": [
-            "x64"
-          ]
-        }
+        "deb",
+        "snap",
+        "AppImage"
       ],
       "desktop": {
         "Encoding": "UTF-8"
       }
+    },
+    "directories": {
+      "buildResources": "resources"
     }
   }
 }

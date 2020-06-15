@@ -1,12 +1,17 @@
-[![Angular Logo](https://www.vectorlogo.zone/logos/angular/angular-icon.svg)](https://angular.io/) [![Electron Logo](https://www.vectorlogo.zone/logos/electronjs/electronjs-icon.svg)](https://electronjs.org/)
+<p align="center">
+  <img src="./resources/icon.png" height="150" width="175" alt="WebView Angular Electron" />
+</p>
 
+<div align="center">
 ![Maintained][maintained-badge]
 [![Make a pull request][prs-badge]][prs]
 [![License](http://img.shields.io/badge/Licence-MIT-brightgreen.svg)](LICENSE.md)
-
+</div>
 # WebView Angular Electron
 
 ## 🖥 Introduction
+
+The WebView Angular Electron is a Desktop Application, to manage multiples webview  
 
 WebView Angular Electron with Angular 9 and Electron 8 (Typescript + SASS + Hot Reload) for Desktop applications.
 
