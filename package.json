@@ -1,6 +1,6 @@
 {
   "name": "webview-angular-electron",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Manage multiples WebView with Angular e Electron",
   "author": {
     "email": "jhonatan.medeiros02@gmail.com",
