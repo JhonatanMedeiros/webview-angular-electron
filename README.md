@@ -2,11 +2,19 @@
   <img src="./resources/icon.png" height="150" width="175" alt="WebView Angular Electron" />
 </p>
 
-<div align="center">
-![Maintained][maintained-badge]
-[![Make a pull request][prs-badge]][prs]
-[![License](http://img.shields.io/badge/Licence-MIT-brightgreen.svg)](LICENSE.md)
-</div>
+<p align="center">
+  <a aria-label="Maintained" href="https://img.shields.io/badge/maintained-yes-brightgreen">
+    <img src="https://img.shields.io/badge/maintained-yes-brightgreen"></img>
+  </a>
+  <a aria-label="Make a pull request" href="http://makeapullrequest.com">
+    <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat"></img>
+  </a>
+  <a aria-label="License" href="https://github.com/JhonatanMedeiros/webview-angular-electron/blob/master/LICENSE">
+    <img src="http://img.shields.io/badge/Licence-MIT-brightgreen.svg"></img>
+  </a>
+</p>
+
+<br>
 # WebView Angular Electron
 
 ## 🖥 Introduction
