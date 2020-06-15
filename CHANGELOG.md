@@ -1,3 +1,12 @@
+## [1.0.1](https://github.com/JhonatanMedeiros/webview-angular-electron/compare/1.0.0...1.0.1) (2020-06-15)
+
+
+### Bug Fixes
+
+* **electron-builder:** icon release not working ([325c986](https://github.com/JhonatanMedeiros/webview-angular-electron/commit/325c9867b23a1d88e06a53c9ff9475b8e14f29c6))
+
+
+
 # 1.0.0 (2020-05-24)
 
 

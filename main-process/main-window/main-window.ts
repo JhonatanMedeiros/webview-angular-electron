@@ -8,6 +8,7 @@ export class MainWindow {
 
   browserWindow: BrowserWindow = null;
   serve = args.some(val => val === '--serve');
+  port = args.some(val => val === '--port');
 
   constructor() {
     this.createWindow();
@@ -30,11 +31,6 @@ export class MainWindow {
         allowRunningInsecureContent: this.serve,
       },
     });
-
-    if (process.platform === 'linux') {
-      const icon = path.join(__dirname, '../../src/assets/electron-logo.png');
-      this.browserWindow.setIcon(icon);
-    }
 
     this.initURL();
 
@@ -66,11 +62,15 @@ export class MainWindow {
       require('electron-reload')(__dirname + '../../', {
         electron: require(`${__dirname}/../../node_modules/electron`)
       });
-      this.browserWindow.loadURL('http://localhost:4200');
+      const icon = path.join(__dirname, '..', '..', 'src', 'assets', 'icons', 'icon.png');
+      this.browserWindow.setIcon(icon);
+      this.browserWindow.loadURL(`http://localhost:${this.port || 4200}`);
 
     } else {
+      const icon = path.join(__dirname, '..', '..', 'dist', 'webview-angular-electron', 'assets', 'icons', 'icon.png');
+      this.browserWindow.setIcon(icon);
       this.browserWindow.loadURL(url.format({
-        pathname: path.join(__dirname, '/../../dist/webview-angular-electron/index.html'),
+        pathname: path.join(__dirname, '..', '..', 'dist', 'webview-angular-electron', 'index.html'),
         protocol: 'file:',
         slashes: true
       }));

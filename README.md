@@ -1,12 +1,25 @@
-[![Angular Logo](https://www.vectorlogo.zone/logos/angular/angular-icon.svg)](https://angular.io/) [![Electron Logo](https://www.vectorlogo.zone/logos/electronjs/electronjs-icon.svg)](https://electronjs.org/)
+<p align="center">
+  <img width="30%" src="./src/assets/icons/icon.png" alt="WebView Angular Electron"/>
+</p>
 
-![Maintained][maintained-badge]
-[![Make a pull request][prs-badge]][prs]
-[![License](http://img.shields.io/badge/Licence-MIT-brightgreen.svg)](LICENSE.md)
+<p align="center">
+  <a aria-label="Maintained" href="https://img.shields.io/badge/maintained-yes-brightgreen">
+    <img src="https://img.shields.io/badge/maintained-yes-brightgreen"></img>
+  </a>
+  <a aria-label="Make a pull request" href="http://makeapullrequest.com">
+    <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat"></img>
+  </a>
+  <a aria-label="License" href="https://github.com/JhonatanMedeiros/webview-angular-electron/blob/master/LICENSE">
+    <img src="http://img.shields.io/badge/Licence-MIT-brightgreen.svg"></img>
+  </a>
+</p>
+<br>
 
 # WebView Angular Electron
 
 ## 🖥 Introduction
+
+The WebView Angular Electron is a Desktop Application, to manage multiples webview  
 
 WebView Angular Electron with Angular 9 and Electron 8 (Typescript + SASS + Hot Reload) for Desktop applications.
 

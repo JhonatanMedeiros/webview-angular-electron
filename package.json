@@ -1,6 +1,6 @@
 {
   "name": "webview-angular-electron",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Manage multiples WebView with Angular e Electron",
   "author": {
     "email": "jhonatan.medeiros02@gmail.com",
@@ -10,17 +10,17 @@
   "scripts": {
     "postinstall": "electron-builder install-app-deps",
     "ng": "ng",
-    "start": "npm-run-all -p electron:serve ng:serve",
+    "start": "npm-run-all -p electron:serve ng:serve --",
     "build": "npm run electron:serve-tsc && ng build --base-href ./",
     "build:dev": "npm run build --",
     "build:prod": "npm run build -- --prod",
-    "ng:serve": "ng serve",
-    "ng:serve:web": "npm run ng:serve",
+    "ng:serve": "ng serve -- --port=4200",
+    "ng:serve:web": "npm run ng:serve --",
     "electron:serve-tsc": "tsc -p tsconfig-serve.json",
     "electron:serve": "wait-on http-get://localhost:4200/ && npm run electron:serve-tsc && electron . --serve",
     "electron:local": "npm run build:prod && electron .",
     "electron:linux": "npm run build:prod && electron-builder build --linux",
-    "electron:windows": "npm run build:prod && electron-builder build --windows",
+    "electron:windows": "npm run build:prod && electron-builder build --win --x64",
     "electron:mac": "npm run build:prod && electron-builder build --mac",
     "release": "node scripts/release.js",
     "release:changelog": "standard-changelog",
@@ -87,37 +87,6 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS && npm run lint"
-    }
-  },
-  "build": {
-    "appId": "com.jhonatanmedeiros.webview-angular-electron",
-    "productName": "Webview Angular Electron",
-    "linux": {
-      "category": "Development",
-      "packageCategory": "Development",
-      "target": [
-        {
-          "target": "deb",
-          "arch": [
-            "x64"
-          ]
-        },
-        {
-          "target": "snap",
-          "arch": [
-            "x64"
-          ]
-        },
-        {
-          "target": "AppImage",
-          "arch": [
-            "x64"
-          ]
-        }
-      ],
-      "desktop": {
-        "Encoding": "UTF-8"
-      }
     }
   }
 }
