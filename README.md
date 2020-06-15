@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./resources/icon.png" height="150" width="175" alt="WebView Angular Electron" />
+  <img width="30%" src="./resources/icon.png" alt="WebView Angular Electron"/>
 </p>
 
 <p align="center">
@@ -13,8 +13,8 @@
     <img src="http://img.shields.io/badge/Licence-MIT-brightgreen.svg"></img>
   </a>
 </p>
-
 <br>
+
 # WebView Angular Electron
 
 ## 🖥 Introduction
