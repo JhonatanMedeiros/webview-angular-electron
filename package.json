@@ -19,7 +19,6 @@
     "electron:serve-tsc": "tsc -p tsconfig-serve.json",
     "electron:serve": "wait-on http-get://localhost:4200/ && npm run electron:serve-tsc && electron . --serve",
     "electron:local": "npm run build:prod && electron .",
-    "package": "npm run build:prod && electron-builder build --publish never",
     "electron:linux": "npm run build:prod && electron-builder build --linux",
     "electron:windows": "npm run build:prod && electron-builder build --win --x64",
     "electron:mac": "npm run build:prod && electron-builder build --mac",
@@ -88,46 +87,6 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS && npm run lint"
-    }
-  },
-  "build": {
-    "appId": "com.jhonatanmedeiros.webview-angular-electron",
-    "productName": "Webview Angular Electron",
-    "copyright": "Copyright © 2020 ${author}",
-    "dmg": {
-      "contents": [
-        {
-          "x": 130,
-          "y": 220
-        },
-        {
-          "x": 410,
-          "y": 220,
-          "type": "link",
-          "path": "/Applications"
-        }
-      ]
-    },
-    "win": {
-      "target": [
-        "nsis",
-        "msi"
-      ]
-    },
-    "linux": {
-      "category": "Development",
-      "packageCategory": "Development",
-      "target": [
-        "deb",
-        "snap",
-        "AppImage"
-      ],
-      "desktop": {
-        "Encoding": "UTF-8"
-      }
-    },
-    "directories": {
-      "buildResources": "resources"
     }
   }
 }

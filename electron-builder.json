@@ -1,0 +1,51 @@
+{
+  "appId": "com.jhonatanmedeiros.webview-angular-electron",
+  "productName": "Webview Angular Electron",
+  "artifactName": "WebviewAngularElectron-${version}-${os}-${arch}.${ext}",
+  "copyright": "Copyright © 2020 ${author}",
+  "directories": {
+    "output": "release/"
+  },
+  "files": [
+    "**/*",
+    "!**/*.ts",
+    "!*.code-workspace",
+    "!LICENSE.md",
+    "!package.json",
+    "!package-lock.json",
+    "!src/",
+    "!e2e/",
+    "!hooks/",
+    "!angular.json",
+    "!_config.yml",
+    "!karma.conf.js",
+    "!tsconfig.json",
+    "!tslint.json"
+  ],
+  "win": {
+    "icon": "dist/webview-angular-electron/assets/icons",
+    "target": [
+      "nsis",
+      "msi"
+    ]
+  },
+  "mac": {
+    "icon": "dist/webview-angular-electron/assets/icons",
+    "target": [
+      "dmg"
+    ]
+  },
+  "linux": {
+    "icon": "dist/webview-angular-electron/assets/icons",
+    "category": "Development",
+    "packageCategory": "Development",
+    "target": [
+      "deb",
+      "snap",
+      "AppImage"
+    ],
+    "desktop": {
+      "Encoding": "UTF-8"
+    }
+  }
+}

@@ -18,8 +18,6 @@ export class MainWindow {
 
     const size = electronScreen.getPrimaryDisplay().workAreaSize;
 
-    const icon = path.join(__dirname, '..', '..', 'resources', 'icon.png');
-
     // Create the browser window.
     this.browserWindow = new BrowserWindow({
       x: 0,
@@ -27,7 +25,6 @@ export class MainWindow {
       width: size.width,
       height: size.height,
       title: app.getName(),
-      icon,
       alwaysOnTop: false,
       webPreferences: {
         nodeIntegration: true,
@@ -65,9 +62,13 @@ export class MainWindow {
       require('electron-reload')(__dirname + '../../', {
         electron: require(`${__dirname}/../../node_modules/electron`)
       });
+      const icon = path.join(__dirname, '..', '..', 'src', 'assets', 'icons', 'icon.png');
+      this.browserWindow.setIcon(icon);
       this.browserWindow.loadURL(`http://localhost:${this.port || 4200}`);
 
     } else {
+      const icon = path.join(__dirname, '..', '..', 'dist', 'webview-angular-electron', 'assets', 'icons', 'icon.png');
+      this.browserWindow.setIcon(icon);
       this.browserWindow.loadURL(url.format({
         pathname: path.join(__dirname, '..', '..', 'dist', 'webview-angular-electron', 'index.html'),
         protocol: 'file:',

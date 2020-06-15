@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="30%" src="./resources/icon.png" alt="WebView Angular Electron"/>
+  <img width="30%" src="./src/assets/icons/icon.png" alt="WebView Angular Electron"/>
 </p>
 
 <p align="center">
